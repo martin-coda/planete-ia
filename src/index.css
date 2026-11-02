@@ -1,0 +1,70 @@
+:root {
+  --bg: #f4f1ea;
+  --panel: #ffffff;
+  --ink: #23201c;
+  --muted: #7a736a;
+  --accent: #b5532a;
+  --warn: #c0392b;
+  --line: #e2ddd3;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+button {
+  font: inherit; cursor: pointer; border: 1px solid var(--line); background: var(--panel);
+  border-radius: 6px; padding: 6px 10px; margin: 2px;
+}
+button:disabled { opacity: 0.45; cursor: not-allowed; }
+button.on { background: var(--accent); color: #fff; border-color: var(--accent); }
+.muted { color: var(--muted); font-size: 0.85rem; }
+
+.menu { max-width: 520px; margin: 15vh auto; padding: 0 16px; text-align: center; }
+.menu button { font-size: 1.2rem; padding: 10px 28px; background: var(--accent); color: #fff; border: none; }
+
+.game { display: flex; height: 100vh; }
+.map { flex: 1; min-width: 0; background: linear-gradient(#cfe3ee, #eef3f0); }
+.hud { width: 340px; overflow-y: auto; background: var(--panel); border-left: 1px solid var(--line); padding: 12px; font-size: 0.9rem; }
+.hud header { display: flex; flex-direction: column; gap: 2px; margin-bottom: 8px; }
+.hud .phase { color: var(--accent); font-weight: 600; }
+.hud section { border-top: 1px solid var(--line); padding: 8px 0; }
+.hud h3 { font-size: 0.85rem; margin: 0 0 6px; text-transform: uppercase; color: var(--muted); }
+.gauge { display: flex; justify-content: space-between; padding: 2px 0; }
+.gauge.warn strong { color: var(--warn); }
+.check { display: block; padding: 3px 0; }
+.error { color: var(--warn); font-weight: 600; }
+.log p { margin: 2px 0; }
+
+.overlay { position: fixed; inset: 0; background: #0007; display: grid; place-items: center; padding: 16px; }
+.card { background: var(--panel); border-radius: 10px; padding: 24px; max-width: 480px; }
+
+/* Règles du jeu */
+.menu button.secondary { font-size: 1rem; padding: 8px 20px; background: var(--panel); color: var(--ink); border: 1px solid var(--line); margin-top: 10px; }
+.hud header { position: relative; }
+.hud-rules { position: absolute; top: 0; right: 0; margin: 0; font-weight: 600; color: var(--accent); }
+.card.rules { max-width: 680px; width: 100%; max-height: 90vh; display: flex; flex-direction: column; padding: 20px; text-align: left; }
+.rules-head { display: flex; align-items: center; justify-content: space-between; }
+.rules-head h2 { margin: 0; }
+.rules .close { border: none; font-size: 1.1rem; }
+.rules-tabs { display: flex; flex-wrap: wrap; gap: 2px; margin: 12px 0; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
+.rules-tabs button { font-size: 0.8rem; padding: 4px 8px; }
+.rules-body { overflow-y: auto; flex: 1; line-height: 1.5; padding-right: 4px; }
+.rules-body h3 { margin: 0 0 8px; color: var(--accent); }
+.rules-body h4 { margin: 14px 0 4px; }
+.rules-body ul, .rules-body ol { padding-left: 22px; margin: 6px 0; }
+.rules-body li { margin: 3px 0; }
+.rules .tip { background: #fbf1e8; border-left: 3px solid var(--accent); padding: 8px 12px; border-radius: 4px; }
+.rules-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 8px 0; }
+.rules-table th, .rules-table td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.rules-table th { color: var(--muted); font-weight: 600; }
+.rules-foot { display: flex; align-items: center; justify-content: space-between; margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--line); }
+.rules-foot .primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+@media (max-width: 760px) {
+  .card.rules { padding: 14px; }
+  .rules-table { font-size: 0.8rem; }
+  .game { flex-direction: column; height: auto; }
+  .map { height: 55vh; flex: none; }
+  .hud { width: 100%; border-left: none; }
+}

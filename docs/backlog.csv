@@ -1,0 +1,21 @@
+id,title,epic,role,estimate_days,priority
+E2-1,Intégrer la maquette à la place du HUD de debug,E2,R2,2,must
+E2-2,"Carte iso : modèles low-poly, survol, case sélectionnée",E2,R2,2.5,must
+E2-3,Panneau de chantier et arbitrage ville / datacenters,E2,R2,2,must
+E2-4,"Caméra : réglages fins, tactile",E2,R2,0.5,should
+E2-5,"Menu, pause, écran de fin et annonce de la phase 2",E2,R2,2,must
+E2-6,Infobulles sources et écran de crédits des données,E2,R2,1,must
+E2-7,Responsive et accessibilité de base,E2,R2,1,must
+E2-8,Écran de bilan avec graphiques,E2,R2,1,should
+E3-1,"Sources clés, licences, traceability.json",E3,R3,2,must
+E3-2,Script reproductible données brutes vers game-params.json,E3,R3,2,must
+E3-3,"Catégories d'usage Compar:IA, modération mineurs",E3,R3,3,must
+E3-4,"Fiches de fin, fiches secrètes, hypothèses et limites",E3,R3,1,must
+E3-5,Publier le lot de données sur data.gouv.fr,E3,R3,1,should
+E4-1,Déploiement continu Vercel,E4,R4,1,must
+E4-2,Conformité RGPD mineurs et page de confidentialité,E4,R4,1,must
+E4-3,Stats de parties anonymes en open data,E4,R4,2,could
+E5-1,Playtests et équilibrage,E5,Tous,1.5,must
+E5-2,README et documentation des données,E5,Tous,1,must
+E5-3,Pitch et démo jury,E5,Tous,1,must
+E5-4,Recette et bugs bloquants,E5,Tous,0.5,must

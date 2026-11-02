@@ -1,0 +1,86 @@
+[
+  {
+    "param": "planet.population",
+    "realValue": "Population de la petite planète",
+    "sourceId": null,
+    "transformation": "Choix de design (échelle)",
+    "status": "placeholder"
+  },
+  {
+    "param": "demand.computePerUserPflops",
+    "realValue": "Calcul consommé par utilisateur",
+    "sourceId": "comparia",
+    "transformation": "À calibrer avec Compar:IA (kWh/conversation) et le nombre de requêtes/jour",
+    "status": "placeholder"
+  },
+  {
+    "param": "demand.adoption.growthRatePerMonth",
+    "realValue": "Courbe d'adoption de l'IA générative",
+    "sourceId": "barometre-numerique",
+    "transformation": "Ajuster pour que la phase 1 dure ~15 ans de jeu, cohérent avec le Baromètre du numérique",
+    "status": "placeholder"
+  },
+  {
+    "param": "demand.overuse.maxExtra",
+    "realValue": "Croissance projetée des usages",
+    "sourceId": "iea-energy-ai",
+    "transformation": "Calibrer sur les scénarios de l'AIE",
+    "status": "placeholder"
+  },
+  {
+    "param": "datacenter.powerMw",
+    "realValue": "Puissance électrique d'un datacenter IA",
+    "sourceId": "iea-energy-ai",
+    "transformation": "Mise à l'échelle de la planète",
+    "status": "placeholder"
+  },
+  {
+    "param": "datacenter.costRareEarthT",
+    "realValue": "Métaux critiques par datacenter",
+    "sourceId": "usgs-mcs",
+    "transformation": "USGS : métaux par serveur × serveurs par datacenter",
+    "status": "placeholder"
+  },
+  {
+    "param": "powerPlant.productionMw",
+    "realValue": "Puissance d'un réacteur",
+    "sourceId": "iea-energy-ai",
+    "transformation": "Mise à l'échelle de la planète",
+    "status": "placeholder"
+  },
+  {
+    "param": "grid.baseLossRate",
+    "realValue": "Taux de pertes du réseau électrique",
+    "sourceId": "rte-eco2mix",
+    "transformation": "Reprendre le taux réel (RTE/Eurostat)",
+    "status": "placeholder"
+  },
+  {
+    "param": "city.powerMw",
+    "realValue": "Consommation électrique par habitant",
+    "sourceId": "rte-eco2mix",
+    "transformation": "Conso/habitant × population",
+    "status": "placeholder"
+  },
+  {
+    "param": "rareEarth.initialStockT",
+    "realValue": "Rapport réserves / besoins annuels",
+    "sourceId": "usgs-mcs",
+    "transformation": "Conserver la proportion réelle",
+    "status": "placeholder"
+  },
+  {
+    "param": "usageCategories",
+    "realValue": "Répartition des usages",
+    "sourceId": "comparia",
+    "transformation": "Reprendre les catégories et parts Compar:IA",
+    "status": "placeholder"
+  },
+  {
+    "param": "trust.initial",
+    "realValue": "Confiance envers l'IA",
+    "sourceId": "barometre-numerique",
+    "transformation": "Baromètre du numérique / Eurobaromètre",
+    "status": "placeholder"
+  }
+]

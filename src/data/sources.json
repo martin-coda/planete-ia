@@ -1,0 +1,7 @@
+[
+  { "id": "comparia", "title": "Compar:IA, le comparateur d'IA conversationnelles", "publisher": "Ministère de la Culture / DINUM", "url": "https://comparia.beta.gouv.fr", "license": "À vérifier (R3)", "year": 2025 },
+  { "id": "rte-eco2mix", "title": "éco2mix : consommation et production d'électricité", "publisher": "RTE", "url": "https://www.rte-france.com/eco2mix", "license": "Licence Ouverte (à confirmer)", "year": 2025 },
+  { "id": "barometre-numerique", "title": "Baromètre du numérique", "publisher": "Arcep / Arcom / CGE / ANCT (Crédoc)", "url": "https://www.data.gouv.fr", "license": "À vérifier (R3)", "year": 2025 },
+  { "id": "iea-energy-ai", "title": "Energy and AI", "publisher": "Agence internationale de l'énergie", "url": "https://www.iea.org/reports/energy-and-ai", "license": "À vérifier : tous les contenus AIE ne sont pas ouverts", "year": 2025 },
+  { "id": "usgs-mcs", "title": "Mineral Commodity Summaries", "publisher": "USGS", "url": "https://www.usgs.gov/centers/national-minerals-information-center/mineral-commodity-summaries", "license": "Domaine public", "year": 2025 }
+]

@@ -1,0 +1,52 @@
+{
+  "meta": {
+    "version": "0.1.0-placeholder",
+    "scale": "Planète fictive de 100 000 habitants. Valeurs provisoires : à calibrer par R3 (voir traceability.json)."
+  },
+  "time": { "ticksPerSecond": 1 },
+  "planet": { "population": 100000 },
+  "demand": {
+    "computePerUserPflops": 0.0005,
+    "adoption": { "initial": 0.02, "growthRatePerMonth": 0.06 },
+    "overuse": { "initialExtra": 0.05, "maxExtra": 1.5, "growthRatePerMonth": 0.05, "limitEfficiency": 0.8 }
+  },
+  "datacenter": { "costRareEarthT": 40, "computePflops": 5, "powerMw": 20, "idlePowerShare": 0.3, "buildMonths": 3 },
+  "powerPlant": { "name": "Réacteur Hélios", "costRareEarthT": 60, "productionMw": 120, "buildMonths": 12 },
+  "grid": { "baseLossRate": 0.1, "lossReductionPerLevel": 0.025, "minLossRate": 0.025, "maxLevel": 3, "upgradeCostRareEarthT": 20 },
+  "city": { "powerMw": 80, "rareEarthTPerYear": 3 },
+  "rareEarth": { "initialStockT": 1300 },
+  "trust": {
+    "initial": 70,
+    "availabilityPenaltyPerMonth": 4,
+    "cityPenaltyPerMonth": 6,
+    "recoveryPerMonth": 0.5,
+    "referenceDemandPflops": 50,
+    "demandWeightMin": 0.2,
+    "demandWeightMax": 3
+  },
+  "end": {
+    "blackoutCityRatio": 0.5,
+    "blackoutMonths": 6,
+    "resourcesAvailability": 0.5,
+    "resourcesMonths": 12,
+    "stableMonths": 60,
+    "stableMinAvailability": 0.95,
+    "stableMinTrust": 50,
+    "stableMaxYearlyDemandGrowth": 0.02
+  },
+  "usageCategories": [
+    { "id": "work", "label": "Travail", "essential": true, "shareOfExtra": 0.15, "trustCostOnLimit": 0 },
+    { "id": "learning", "label": "Apprendre, se faire expliquer", "essential": true, "shareOfExtra": 0.1, "trustCostOnLimit": 0 },
+    { "id": "search", "label": "Chercher une information", "essential": true, "shareOfExtra": 0.05, "trustCostOnLimit": 0 },
+    { "id": "fun-images", "label": "Images et vidéos pour s'amuser", "essential": false, "shareOfExtra": 0.25, "trustCostOnLimit": 4 },
+    { "id": "chitchat", "label": "Blagues et tests sans but", "essential": false, "shareOfExtra": 0.2, "trustCostOnLimit": 2 },
+    { "id": "auto-content", "label": "Contenus générés en masse (spam, faux avis)", "essential": false, "shareOfExtra": 0.15, "trustCostOnLimit": 1 },
+    { "id": "artist-imitation", "label": "Imitation d'artistes (voix, style)", "essential": false, "shareOfExtra": 0.1, "trustCostOnLimit": 3 }
+  ],
+  "start": {
+    "buildings": [
+      { "type": "powerPlant", "x": 4, "y": 5 },
+      { "type": "datacenter", "x": 5, "y": 7 }
+    ]
+  }
+}
