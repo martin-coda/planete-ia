@@ -27,7 +27,7 @@ React 19 · TypeScript · Vite · Three.js (React Three Fiber + drei) · Zustand
 | `src/data/` | JSON du jeu : paramètres, carte, fiches, sources, traçabilité |
 | `src/store/` | Store Zustand et boucle de jeu |
 | `src/scene/` | Carte isométrique 3D |
-| `src/ui/` | Interface (HUD) |
+| `src/ui/` | Interface : jauges, chantier, panneau latéral, fenêtres |
 | `data/` | Données brutes et scripts de transformation (R3) |
 | `docs/` | Cadrage, contrat de données, conventions, backlog |
 
@@ -38,6 +38,7 @@ React 19 · TypeScript · Vite · Three.js (React Three Fiber + drei) · Zustand
 - [Conventions et board (E0-3)](docs/02-conventions.md)
 - [Rendu de la carte (E0-4)](docs/03-rendu-carte.md)
 - [Moteur de jeu (E1)](docs/04-moteur.md)
+- [Interface (E2)](docs/05-interface.md)
 - [Backlog](docs/backlog.md)
 
 ## Créer le board

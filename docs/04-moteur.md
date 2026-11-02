@@ -13,7 +13,7 @@ src/
   data/          → JSON du jeu (contrat E0-2)
   store/         → Zustand : fait le pont entre le moteur et React, plus la boucle de jeu
   scene/         → carte 3D (R3F)
-  ui/            → HUD (pour l'instant un HUD de debug)
+  ui/            → interface (voir 05-interface.md)
 ```
 
 **Règle d'or** : `engine/` n'importe jamais React, Three.js ou le store. On peut donc tester toutes les règles sans navigateur, et R2 peut changer toute l'interface sans toucher aux règles.

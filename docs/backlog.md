@@ -27,18 +27,18 @@ Le rendu final est le **3 décembre 2026**.
 | E1-4 | Phase 2 : intensité > 100 % et usages inutiles limitables | R1 | 1,5 | M | ✅ |
 | E1-5 | Brancher le moteur sur React (store, boucle, HUD de debug) | R1, R2 | 0,5 | M | ✅ |
 
-## E2 : Front, carte et UX (11 j)
+## E2 : Front, carte et UX (11 j), fait le 2 novembre (à relire, voir `docs/05-interface.md`)
 
-| ID | Tâche | Rôle | Est. | Prio |
-|---|---|---|---|---|
-| E2-1 | Intégrer la maquette (mise en page, barre latérale, 4 jauges) à la place du HUD de debug | R2 | 2 | M |
-| E2-2 | Carte iso : modèles low-poly, survol, case sélectionnée | R2 | 2,5 | M |
-| E2-3 | Panneau de chantier et arbitrage ville / datacenters | R2 | 2 | M |
-| E2-4 | Caméra : réglages fins, tactile | R2 | 0,5 | S |
-| E2-5 | Menu, pause, écran de fin « Et dans le monde réel ? », annonce de la phase 2 | R2 | 2 | M |
-| E2-6 | Infobulles « D'où vient ce chiffre ? » et écran de crédits des données | R2 | 1 | M |
-| E2-7 | Responsive (tablette et PC de classe) et accessibilité de base (Lighthouse / axe) | R2 | 1 | M |
-| E2-8 | Écran de bilan avec graphiques (historique annuel déjà fourni par le moteur) | R2 | 1 | S |
+| ID | Tâche | Rôle | Est. | Prio | État |
+|---|---|---|---|---|---|
+| E2-1 | Intégrer la maquette (mise en page, barre latérale, 4 jauges) à la place du HUD de debug | R2 | 2 | M | ✅ |
+| E2-2 | Carte iso : modèles low-poly, survol, case sélectionnée | R2 | 2,5 | M | ✅ |
+| E2-3 | Panneau de chantier et arbitrage ville / datacenters | R2 | 2 | M | ✅ |
+| E2-4 | Caméra : réglages fins, tactile | R2 | 0,5 | S | ✅ (tactile à tester sur une vraie tablette) |
+| E2-5 | Menu, pause, écran de fin « Et dans le monde réel ? », annonce de la phase 2 | R2 | 2 | M | ✅ |
+| E2-6 | Infobulles « D'où vient ce chiffre ? » et écran de crédits des données | R2 | 1 | M | ✅ |
+| E2-7 | Responsive (tablette et PC de classe) et accessibilité de base (Lighthouse / axe) | R2 | 1 | M | 🟡 fait, audit Lighthouse / axe à lancer |
+| E2-8 | Écran de bilan avec graphiques (historique annuel déjà fourni par le moteur) | R2 | 1 | S | ✅ |
 
 ## E3 : Données (9 j)
 

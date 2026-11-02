@@ -1,7 +1,12 @@
 import { useEffect } from 'react';
-import { useGame } from './gameStore';
+import { anyModal, useGame } from './gameStore';
 
-/** Fait avancer la simulation selon la vitesse choisie. Échap = pause. */
+const INTERACTIVE = new Set(['BUTTON', 'INPUT', 'SELECT', 'TEXTAREA', 'A', 'SUMMARY']);
+
+/**
+ * Fait avancer la simulation selon la vitesse choisie, et gère les raccourcis globaux :
+ * Échap ferme la fenêtre ouverte, annule le placement, ou met en pause ; Espace = pause.
+ */
 export function useGameLoop() {
   const speed = useGame((s) => s.speed);
   const screen = useGame((s) => s.screen);
@@ -15,11 +20,21 @@ export function useGameLoop() {
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key !== 'Escape') return;
       const st = useGame.getState();
-      // Échap ferme d'abord les règles si elles sont ouvertes
-      if (st.rulesOpen) st.closeRules();
-      else if (st.screen === 'playing') st.togglePause();
+      if (e.key === 'Escape') {
+        if (st.notices.length) st.dismissNotice();
+        else if (st.rulesOpen) st.closeRules();
+        else if (st.creditsOpen) st.closeCredits();
+        else if (st.bilanOpen) st.closeBilan();
+        else if (st.placing) st.startPlacing(null);
+        else st.togglePause();
+        return;
+      }
+      const target = e.target as HTMLElement | null;
+      if (e.key === ' ' && st.screen === 'playing' && !anyModal(st) && !INTERACTIVE.has(target?.tagName ?? '')) {
+        e.preventDefault();
+        st.togglePause();
+      }
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);

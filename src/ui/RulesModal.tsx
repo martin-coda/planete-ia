@@ -2,8 +2,9 @@
  * Fenêtre « Règles du jeu » : explique au joueur comment jouer.
  * Tous les chiffres sont lus dans game-params.json, ils restent donc justes quand R3 recalibre les valeurs.
  */
-import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { useState, type ReactNode } from 'react';
 import { useGame } from '../store/gameStore';
+import { Modal } from './Modal';
 
 const fmt = (n: number, d = 1) => n.toLocaleString('fr-FR', { maximumFractionDigits: d });
 const pct = (n: number) => `${fmt(n * 100, 1)} %`;
@@ -74,8 +75,8 @@ function usePages(): Page[] {
       body: (
         <>
           <p>
-            <strong>Clique sur une case</strong> de la carte, puis choisis quoi construire dans le panneau « Chantier ». On ne peut
-            pas construire sur l'eau, la montagne ou la ville.
+            Dans le panneau <strong>« Chantier »</strong>, choisis un bâtiment avec <strong>« Placer sur la carte »</strong>, puis
+            clique sur une case verte. On ne peut pas construire sur l'eau, la montagne ou la ville.
           </p>
           <table className="rules-table">
             <thead>
@@ -246,22 +247,38 @@ function usePages(): Page[] {
           <tbody>
             <tr>
               <td>Sélectionner une case, chercher un secret</td>
-              <td>Clic gauche</td>
+              <td>Clic gauche (ou toucher)</td>
+            </tr>
+            <tr>
+              <td>Construire</td>
+              <td>« Placer sur la carte », puis clic sur une case verte</td>
             </tr>
             <tr>
               <td>Déplacer la carte</td>
-              <td>Clic gauche maintenu</td>
+              <td>Clic gauche maintenu (ou glisser un doigt)</td>
             </tr>
             <tr>
               <td>Faire pivoter la vue</td>
-              <td>Clic droit maintenu</td>
+              <td>Clic droit maintenu, ou boutons ⟲ ⟳</td>
             </tr>
             <tr>
               <td>Zoomer / dézoomer</td>
-              <td>Molette</td>
+              <td>Molette, pincer avec deux doigts, ou boutons + −</td>
+            </tr>
+            <tr>
+              <td>Recentrer la vue</td>
+              <td>Bouton ⌖</td>
+            </tr>
+            <tr>
+              <td>Jouer au clavier</td>
+              <td>Tab jusqu'à la carte, flèches pour bouger le curseur, Entrée pour sélectionner ou construire</td>
             </tr>
             <tr>
               <td>Pause / reprendre</td>
+              <td>Échap ou Espace</td>
+            </tr>
+            <tr>
+              <td>Annuler un placement, fermer une fenêtre</td>
               <td>Échap</td>
             </tr>
             <tr>
@@ -277,31 +294,21 @@ function usePages(): Page[] {
 
 export function RulesModal() {
   const open = useGame((s) => s.rulesOpen);
+  return open ? <RulesContent /> : null;
+}
+
+function RulesContent() {
   const closeRules = useGame((s) => s.closeRules);
   const pages = usePages();
   const [index, setIndex] = useState(0);
-  const closeRef = useRef<HTMLButtonElement>(null);
-
-  useEffect(() => {
-    if (open) closeRef.current?.focus();
-  }, [open]);
-
-  if (!open) return null;
   const page = pages[index];
   const isLast = index === pages.length - 1;
 
   return (
-    <div className="overlay" onClick={closeRules}>
-      <div
-        className="card rules"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="rules-title"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <div className="rules-head">
+    <Modal labelledBy="rules-title" onClose={closeRules} className="rules">
+        <div className="modal-head">
           <h2 id="rules-title">Règles du jeu</h2>
-          <button ref={closeRef} className="close" onClick={closeRules} aria-label="Fermer les règles">
+          <button data-autofocus className="close" onClick={closeRules} aria-label="Fermer les règles">
             ✕
           </button>
         </div>
@@ -336,17 +343,6 @@ export function RulesModal() {
             </button>
           )}
         </footer>
-      </div>
-    </div>
-  );
-}
-
-/** Bouton qui ouvre les règles (menu et HUD). */
-export function RulesButton({ className = '' }: { className?: string }) {
-  const openRules = useGame((s) => s.openRules);
-  return (
-    <button className={`rules-btn ${className}`} onClick={openRules}>
-      ? Règles
-    </button>
+    </Modal>
   );
 }
