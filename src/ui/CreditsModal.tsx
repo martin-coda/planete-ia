@@ -53,7 +53,9 @@ export function CreditsModal() {
                   <td>{t.realValue}</td>
                   <td>{sourceById(t.sourceId)?.publisher ?? 'Choix de conception'}</td>
                   <td>{t.transformation}</td>
-                  <td>{t.status === 'calibrated' ? 'Calibré' : <em className="badge">Provisoire</em>}</td>
+                  <td>
+                    {t.status === 'placeholder' ? <em className="badge">Provisoire</em> : t.sourceId === null ? 'Choix de jeu' : 'Calibré'}
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -63,13 +65,25 @@ export function CreditsModal() {
         <h3>Hypothèses et limites</h3>
         <ul>
           <li>{ctx.config.meta.scale}</li>
+          <li>
+            En phase 1, le temps du jeu suit le vrai rythme d'adoption mesuré par le Baromètre du numérique : un mois de jeu vaut un
+            mois réel.
+          </li>
           <li>Une seule source d'énergie (un réacteur fictif) : le vrai mix électrique est plus varié.</li>
           <li>
             On parle de « terres rares », mais les serveurs utilisent surtout d'autres métaux critiques (gallium, germanium, cuivre,
             cobalt…). C'est une simplification.
           </li>
-          <li>Le coût énergétique d'une requête d'IA est incertain : on le donne en fourchette, pas en chiffre unique.</li>
-          <li>Les valeurs marquées « provisoire » seront remplacées par des valeurs calculées à partir des sources.</li>
+          <li>
+            Les parts d'usage viennent des conversations Compar:IA, qui ne représentent pas tous les usages de l'IA (pas d'images, public
+            volontaire). Classer un usage comme « non essentiel » est un choix du jeu, à débattre.
+          </li>
+          <li>
+            Hypothèse du jeu : en phase 2, la surconsommation vient surtout des usages non essentiels. Ce n'est pas mesuré dans les
+            données.
+          </li>
+          <li>Le coût énergétique d'une conversation est estimé (EcoLogits) : on le donne en fourchette, pas en chiffre unique.</li>
+          <li>Les datacenters, le réacteur et la formule de confiance sont des choix de conception, indiqués comme tels ci-dessus.</li>
         </ul>
 
         <h3>Confidentialité</h3>

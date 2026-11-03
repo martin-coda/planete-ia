@@ -31,10 +31,24 @@ export interface SourceRow {
   provisional: boolean;
 }
 
+/** Ligne de traçabilité d'un paramètre, ou à défaut de son parent (ex. « datacenter » pour « datacenter.powerMw »). */
+function traceFor(param: string): Traceability | undefined {
+  const parts = param.split('.');
+  for (let i = parts.length; i > 0; i--) {
+    const t = TRACEABILITY.find((row) => row.param === parts.slice(0, i).join('.'));
+    if (t) return t;
+  }
+  return undefined;
+}
+
 export function sourcesFor(key: GaugeKey): SourceRow[] {
+  const seen = new Set<string>();
   return GAUGE_PARAMS[key].flatMap((param) => {
-    const t = TRACEABILITY.find((row) => row.param === param);
-    if (!t) return [];
-    return [{ param, realValue: t.realValue, source: sourceById(t.sourceId), provisional: t.status === 'placeholder' }];
+    const t = traceFor(param);
+    if (!t || seen.has(t.param)) return [];
+    seen.add(t.param);
+    // Pour un choix de conception, on affiche sa justification plutôt que « Choix de conception »
+    const realValue = t.sourceId ? t.realValue : t.transformation;
+    return [{ param: t.param, realValue, source: sourceById(t.sourceId), provisional: t.status === 'placeholder' }];
   });
 }

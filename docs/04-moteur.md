@@ -49,17 +49,17 @@ Chaque tick ou action remplit `state.events` (`phase2Started`, `buildingReady`, 
 7. **Stabilisation** (phase 2), puis « Vous avez compris les enjeux » si tous les secrets ont été trouvés.
 8. **Historique** : un point par an pour les graphiques du bilan.
 
-## Équilibrage actuel (valeurs provisoires)
+## Équilibrage actuel (valeurs calibrées, E3)
 
-Résultats des joueurs automatiques de `balance.test.ts` :
+Résultats des joueurs automatiques de `balance.test.ts` avec les vraies données :
 
 | Stratégie | Résultat |
 |---|---|
-| Ne rien faire | Défaite (confiance) en phase 1, vers l'an 8 |
-| Construire sans jamais limiter les usages | Défaite (confiance) en phase 2, vers l'an 32 : il manque les terres rares pour suivre |
-| Construire **et** limiter les usages inutiles | Planète stabilisée vers l'an 29 (environ 6 min à ×1) |
+| Ne rien faire | Défaite (confiance) en phase 1, vers l'an 7,5 |
+| Construire sans jamais limiter les usages | Défaite (confiance) en phase 2, vers l'an 38 |
+| Construire **et** limiter les usages inutiles | Planète stabilisée vers l'an 29,5 (environ 6 min à ×1) |
 
-C'est exactement le message pédagogique : construire ne suffit plus. Ces tests protègent ce comportement quand R3 remplace les valeurs.
+C'est exactement le message pédagogique : construire ne suffit plus. Ces tests protègent ce comportement quand les données sont mises à jour.
 
 ## Commandes utiles
 

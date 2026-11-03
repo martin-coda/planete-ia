@@ -1,0 +1,42 @@
+parametre,valeur,donnee_reelle,source,transformation
+time.ticksPerSecond,1,Choix de conception du jeu,,
+planet.population,100000,Taille de la planète,,"Planète de 100 000 habitants (≈ 1/690 de la France) pour avoir des nombres lisibles. Le stock de terres rares est une échelle de jeu : ce qui compte, c'est le rapport stock / prélèvement annuel, tiré de l'USGS."
+demand.computePerUserPflops,0.0005,Choix de conception du jeu,,Unité de jeu : seul compte le rapport entre la demande et la capacité d'un datacenter.
+demand.adoption.initial,0.02,Choix de conception du jeu,,"La partie commence au tout début de l'IA générative grand public (fin 2022), quand très peu de gens l'utilisaient."
+demand.adoption.growthRatePerMonth,0.0544,"Utilisateurs d'IA générative en France : 20 % → 33 % → 48 % (juin 2023, 2024, 2025)",Arcep / Arcom / CGE / ANCT (Crédoc),Ajustement d'une courbe logistique (pente moyenne du logit entre deux enquêtes ÷ 12 mois). 1 mois de jeu = 1 mois réel en phase 1.
+demand.overuse.initialExtra,0.05,Choix de conception du jeu,,
+demand.overuse.maxExtra,1.28,Électricité des datacenters dans le monde : 415 TWh en 2024 → 945 TWh en 2030 (scénario de base AIE),Agence internationale de l'énergie (AIE),"Plafond d'intensité = 945 ÷ 415 = ×2,28, donc surconsommation maximale de +128 %"
+demand.overuse.growthRatePerMonth,0.05,Choix de conception du jeu,,Vitesse de la surconsommation en phase 2 : choisie pour que la phase 2 dure 5 à 10 minutes.
+demand.overuse.limitEfficiency,0.8,Choix de conception du jeu,,Limiter un usage ne le supprime pas : 80 % de sa surconsommation disparaît.
+datacenter.costRareEarthT,40,Choix de conception du jeu,,"Un datacenter de 20 MW est un datacenter de taille moyenne ; coût et capacité choisis pour l'équilibre du jeu."
+datacenter.computePflops,5,Choix de conception du jeu,,"Un datacenter de 20 MW est un datacenter de taille moyenne ; coût et capacité choisis pour l'équilibre du jeu."
+datacenter.powerMw,20,Choix de conception du jeu,,"Un datacenter de 20 MW est un datacenter de taille moyenne ; coût et capacité choisis pour l'équilibre du jeu."
+datacenter.idlePowerShare,0.3,Choix de conception du jeu,,"Un datacenter de 20 MW est un datacenter de taille moyenne ; coût et capacité choisis pour l'équilibre du jeu."
+datacenter.buildMonths,3,Choix de conception du jeu,,"Un datacenter de 20 MW est un datacenter de taille moyenne ; coût et capacité choisis pour l'équilibre du jeu."
+powerPlant.name,Réacteur Hélios,Choix de conception du jeu,,"Réacteur fictif (décision E0-1, n°3) : production et coût choisis pour que l'énergie devienne un vrai choix."
+powerPlant.costRareEarthT,60,Choix de conception du jeu,,"Réacteur fictif (décision E0-1, n°3) : production et coût choisis pour que l'énergie devienne un vrai choix."
+powerPlant.productionMw,120,Choix de conception du jeu,,"Réacteur fictif (décision E0-1, n°3) : production et coût choisis pour que l'énergie devienne un vrai choix."
+powerPlant.buildMonths,12,Choix de conception du jeu,,"Réacteur fictif (décision E0-1, n°3) : production et coût choisis pour que l'énergie devienne un vrai choix."
+grid.baseLossRate,0.078,"Pertes 2024 : environ 2,5 % sur le réseau de transport RTE et 23,8 TWh sur le réseau Enedis",Enedis,"(2,5 % × 449,2 TWh + 23,8 TWh) ÷ 449,2 TWh. Le taux RTE vient d'une source secondaire (rte-pertes), à confirmer."
+grid.lossReductionPerLevel,0.025,Choix de conception du jeu,,"Chaque optimisation du réseau gagne 2,5 points de pertes, jusqu'à un minimum de 2,5 %."
+grid.minLossRate,0.025,Choix de conception du jeu,,
+grid.maxLevel,3,Choix de conception du jeu,,
+grid.upgradeCostRareEarthT,20,Choix de conception du jeu,,
+city.powerMw,74.6,"449,2 TWh consommés en France en 2024 pour 68,75 millions d'habitants, soit 6,53 MWh par habitant et par an",RTE,"6,534 MWh/hab/an × 100 000 habitants ÷ 8 760 h = puissance moyenne en MW (population : Insee)"
+city.rareEarthTPerYear,5.63,"Réserves mondiales 90 Mt, production 390 kt en 2024 : 231 ans de réserves au rythme actuel",USGS (Service géologique des États-Unis),"Prélèvement de la ville = stock de départ (1 300 t) ÷ 231 ans : sans construire, la planète vit le même rapport réserves / production que la Terre."
+rareEarth.initialStockT,1300,Rapport réserves / production de l'USGS (231 ans),USGS (Service géologique des États-Unis),Le stock (1 300 t) est une échelle de jeu. Le rapport réel est conservé par city.rareEarthTPerYear.
+trust.initial,48,52 % des personnes se disent méfiantes envers l'IA générative en 2025,Arcep / Arcom / CGE / ANCT (Crédoc),Confiance de départ = 100 − 52 = part des personnes non méfiantes
+trust.availabilityPenaltyPerMonth,4,Choix de conception du jeu,,Formule de confiance de la décision E0-1 n°8 : coefficients d'équilibrage.
+trust.cityPenaltyPerMonth,6,Choix de conception du jeu,,Formule de confiance de la décision E0-1 n°8 : coefficients d'équilibrage.
+trust.recoveryPerMonth,0.5,Choix de conception du jeu,,Formule de confiance de la décision E0-1 n°8 : coefficients d'équilibrage.
+trust.referenceDemandPflops,50,Choix de conception du jeu,,Formule de confiance de la décision E0-1 n°8 : coefficients d'équilibrage.
+trust.demandWeightMin,0.2,Choix de conception du jeu,,Formule de confiance de la décision E0-1 n°8 : coefficients d'équilibrage.
+trust.demandWeightMax,3,Choix de conception du jeu,,Formule de confiance de la décision E0-1 n°8 : coefficients d'équilibrage.
+end.blackoutCityRatio,0.5,Choix de conception du jeu,,Conditions de fin de la décision E0-1 (n°5 et n°6).
+end.blackoutMonths,6,Choix de conception du jeu,,Conditions de fin de la décision E0-1 (n°5 et n°6).
+end.resourcesAvailability,0.5,Choix de conception du jeu,,Conditions de fin de la décision E0-1 (n°5 et n°6).
+end.resourcesMonths,12,Choix de conception du jeu,,Conditions de fin de la décision E0-1 (n°5 et n°6).
+end.stableMonths,60,Choix de conception du jeu,,Conditions de fin de la décision E0-1 (n°5 et n°6).
+end.stableMinAvailability,0.95,Choix de conception du jeu,,Conditions de fin de la décision E0-1 (n°5 et n°6).
+end.stableMinTrust,50,Choix de conception du jeu,,Conditions de fin de la décision E0-1 (n°5 et n°6).
+end.stableMaxYearlyDemandGrowth,0.02,Choix de conception du jeu,,Conditions de fin de la décision E0-1 (n°5 et n°6).

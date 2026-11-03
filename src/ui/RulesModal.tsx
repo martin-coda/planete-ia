@@ -22,6 +22,7 @@ function usePages(): Page[] {
   const grid = config.grid;
   const end = config.end;
   const limitable = config.usageCategories.filter((c) => !c.essential);
+  const essentials = config.usageCategories.filter((c) => c.essential);
 
   return [
     {
@@ -199,7 +200,11 @@ function usePages(): Page[] {
             ))}
           </ul>
           <p>
-            Les usages essentiels (travail, apprendre, chercher une information) ne peuvent pas être limités.
+            Les usages essentiels ({essentials.map((c) => c.label.toLowerCase()).join(' ; ')}) ne peuvent pas être limités.
+          </p>
+          <p className="muted">
+            Ces catégories et leur part viennent des vraies conversations de Compar:IA. Décider qu'un usage est « inutile » est un choix
+            du jeu : vous pouvez en débattre !
           </p>
           <p className="tip">C'est le cœur du jeu : la meilleure solution n'est pas toujours de construire plus.</p>
         </>

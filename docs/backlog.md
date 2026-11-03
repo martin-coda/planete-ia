@@ -40,15 +40,15 @@ Le rendu final est le **3 décembre 2026**.
 | E2-7 | Responsive (tablette et PC de classe) et accessibilité de base (Lighthouse / axe) | R2 | 1 | M | 🟡 fait, audit Lighthouse / axe à lancer |
 | E2-8 | Écran de bilan avec graphiques (historique annuel déjà fourni par le moteur) | R2 | 1 | S | ✅ |
 
-## E3 : Données (9 j)
+## E3 : Données (9 j), fait le 2 novembre (à relire, voir `docs/06-donnees.md`)
 
-| ID | Tâche | Rôle | Est. | Prio |
-|---|---|---|---|---|
-| E3-1 | Collecter les sources clés, vérifier les licences, remplir `traceability.json` | R3 | 2 | M |
-| E3-2 | Script reproductible données brutes → `game-params.json` (dans `data/`) | R3 | 2 | M |
-| E3-3 | Extraire les catégories et parts d'usage Compar:IA, modérer pour des mineurs | R3 | 3 | M |
-| E3-4 | Rédiger les fiches de fin et les fiches secrètes, plus les hypothèses et limites | R3 | 1 | M |
-| E3-5 | Publier le lot de données nettoyé sur data.gouv.fr | R3 | 1 | S |
+| ID | Tâche | Rôle | Est. | Prio | État |
+|---|---|---|---|---|---|
+| E3-1 | Collecter les sources clés, vérifier les licences, remplir `traceability.json` | R3 | 2 | M | ✅ (quelques chiffres secondaires à confirmer, voir `data/README.md`) |
+| E3-2 | Script reproductible données brutes → `game-params.json` (dans `data/`) | R3 | 2 | M | ✅ `npm run data:build`, vérifié en CI |
+| E3-3 | Extraire les catégories et parts d'usage Compar:IA, modérer pour des mineurs | R3 | 3 | M | ✅ `npm run data:extract` (410 012 conversations, aucun message lu) |
+| E3-4 | Rédiger les fiches de fin et les fiches secrètes, plus les hypothèses et limites | R3 | 1 | M | ✅ |
+| E3-5 | Publier le lot de données nettoyé sur data.gouv.fr | R3 | 1 | S | 🟡 lot prêt dans `data/publication/`, publication à faire avec un compte data.gouv |
 
 ## E4 : Déploiement et RGPD (4 j)
 

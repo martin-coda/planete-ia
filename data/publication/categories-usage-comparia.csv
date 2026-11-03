@@ -1,0 +1,10 @@
+categorie,libelle,essentiel,part_reelle_comparia,part_surconsommation_jeu
+learning,"Apprendre, réviser, comprendre",true,0.155,0.062
+science,Sciences et technologie,true,0.214,0.085
+work,"Travail, économie, droit",true,0.167,0.066
+health,Santé,true,0.034,0.013
+society,"Société, politique, environnement",true,0.179,0.071
+leisure,"Loisirs, voyages et sport",false,0.086,0.241
+creation,"Création artistique (textes, images, imitation de style)",false,0.042,0.118
+daily,"Vie quotidienne, cuisine et achats",false,0.07,0.196
+other,"Sans sujet précis (tests, blagues…)",false,0.053,0.148

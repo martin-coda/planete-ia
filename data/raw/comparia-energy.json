@@ -1,0 +1,20 @@
+{
+  "source": "https://ministere-culture.s3.sbg.io.cloud.ovh.net/COMPARIA/conversations.parquet",
+  "licence": "Licence Ouverte / Open Licence 2.0 (Etalab)",
+  "extractedAt": "2026-11-02",
+  "period": {
+    "from": "2024-10-01",
+    "to": "2026-05-18"
+  },
+  "conversations": 410016,
+  "conversationsWithCategory": 410012,
+  "unit": "Wh par conversation (estimation EcoLogits, un modèle)",
+  "samples": 750693,
+  "whPerConversation": {
+    "p10": 0.032,
+    "p25": 0.082,
+    "median": 0.405,
+    "p75": 2.453,
+    "p90": 7.005
+  }
+}

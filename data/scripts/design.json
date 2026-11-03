@@ -1,0 +1,152 @@
+{
+  "_doc": "Choix de conception du jeu (R1). Ce ne sont PAS des données réelles : chaque valeur est justifiée dans 'why'. Le script build-params.mjs les combine avec les données de data/raw/ pour écrire src/data/game-params.json. Pour rééquilibrer le jeu, on modifie CE fichier (jamais game-params.json à la main), puis on relance npm run data:build et npm test.",
+
+  "scale": {
+    "population": 100000,
+    "rareEarthStockT": 1300,
+    "why": "Planète de 100 000 habitants (≈ 1/690 de la France) pour avoir des nombres lisibles. Le stock de terres rares est une échelle de jeu : ce qui compte, c'est le rapport stock / prélèvement annuel, tiré de l'USGS."
+  },
+
+  "design": {
+    "meta": { "version": "1.0.0" },
+    "time": { "ticksPerSecond": 1 },
+    "demand": {
+      "computePerUserPflops": 0.0005,
+      "adoption": { "initial": 0.02 },
+      "overuse": { "initialExtra": 0.05, "growthRatePerMonth": 0.05, "limitEfficiency": 0.8 }
+    },
+    "datacenter": { "costRareEarthT": 40, "computePflops": 5, "powerMw": 20, "idlePowerShare": 0.3, "buildMonths": 3 },
+    "powerPlant": { "name": "Réacteur Hélios", "costRareEarthT": 60, "productionMw": 120, "buildMonths": 12 },
+    "grid": { "lossReductionPerLevel": 0.025, "minLossRate": 0.025, "maxLevel": 3, "upgradeCostRareEarthT": 20 },
+    "trust": {
+      "availabilityPenaltyPerMonth": 4,
+      "cityPenaltyPerMonth": 6,
+      "recoveryPerMonth": 0.5,
+      "referenceDemandPflops": 50,
+      "demandWeightMin": 0.2,
+      "demandWeightMax": 3
+    },
+    "end": {
+      "blackoutCityRatio": 0.5,
+      "blackoutMonths": 6,
+      "resourcesAvailability": 0.5,
+      "resourcesMonths": 12,
+      "stableMonths": 60,
+      "stableMinAvailability": 0.95,
+      "stableMinTrust": 50,
+      "stableMaxYearlyDemandGrowth": 0.02
+    },
+    "start": {
+      "buildings": [
+        { "type": "powerPlant", "x": 4, "y": 5 },
+        { "type": "datacenter", "x": 5, "y": 7 }
+      ]
+    }
+  },
+
+  "why": {
+    "demand.computePerUserPflops": "Unité de jeu : seul compte le rapport entre la demande et la capacité d'un datacenter.",
+    "demand.adoption.initial": "La partie commence au tout début de l'IA générative grand public (fin 2022), quand très peu de gens l'utilisaient.",
+    "demand.overuse.growthRatePerMonth": "Vitesse de la surconsommation en phase 2 : choisie pour que la phase 2 dure 5 à 10 minutes.",
+    "demand.overuse.limitEfficiency": "Limiter un usage ne le supprime pas : 80 % de sa surconsommation disparaît.",
+    "datacenter": "Un datacenter de 20 MW est un datacenter de taille moyenne ; coût et capacité choisis pour l'équilibre du jeu.",
+    "powerPlant": "Réacteur fictif (décision E0-1, n°3) : production et coût choisis pour que l'énergie devienne un vrai choix.",
+    "grid.lossReductionPerLevel": "Chaque optimisation du réseau gagne 2,5 points de pertes, jusqu'à un minimum de 2,5 %.",
+    "trust": "Formule de confiance de la décision E0-1 n°8 : coefficients d'équilibrage.",
+    "end": "Conditions de fin de la décision E0-1 (n°5 et n°6)."
+  },
+
+  "usage": {
+    "_doc": "E3-3. Les catégories Compar:IA (thèmes des conversations) sont regroupées en catégories du jeu. Une catégorie Compar:IA absente de 'mapping' tombe dans 'other'. Le classement essentiel / non essentiel est un choix pédagogique assumé, fait pour être discuté en classe.",
+    "overuseWeightNonEssential": 7,
+    "overuseWeightWhy": "Hypothèse : en phase 2, la surconsommation vient surtout des usages non essentiels (loisirs, tests, contenus en masse). Un usage non essentiel pèse 7 fois plus dans la surconsommation qu'un usage essentiel de même volume. Avec ce poids, les usages limitables portent environ 70 % de la surconsommation.",
+    "categories": [
+      { "id": "learning", "label": "Apprendre, réviser, comprendre", "essential": true, "trustCostOnLimit": 0 },
+      { "id": "science", "label": "Sciences et technologie", "essential": true, "trustCostOnLimit": 0 },
+      { "id": "work", "label": "Travail, économie, droit", "essential": true, "trustCostOnLimit": 0 },
+      { "id": "health", "label": "Santé", "essential": true, "trustCostOnLimit": 0 },
+      { "id": "society", "label": "Société, politique, environnement", "essential": true, "trustCostOnLimit": 0 },
+      { "id": "leisure", "label": "Loisirs, voyages et sport", "essential": false, "trustCostOnLimit": 4 },
+      { "id": "creation", "label": "Création artistique (textes, images, imitation de style)", "essential": false, "trustCostOnLimit": 3 },
+      { "id": "daily", "label": "Vie quotidienne, cuisine et achats", "essential": false, "trustCostOnLimit": 2 },
+      { "id": "other", "label": "Sans sujet précis (tests, blagues…)", "essential": false, "trustCostOnLimit": 1 }
+    ],
+    "mapping": {
+      "Education": "learning",
+      "History": "learning",
+      "Philosophy": "learning",
+      "Mathematics": "learning",
+      "Psychology": "learning",
+      "Natural Science & Formal Science & Technology": "science",
+      "Technology": "science",
+      "Business & Economics & Finance": "work",
+      "Personal Development & Human Resources & Career": "work",
+      "Law & Justice": "work",
+      "Marketing": "work",
+      "Real Estate": "work",
+      "Industry": "work",
+      "Agriculture": "work",
+      "Public Administration": "work",
+      "Health & Wellness & Medicine": "health",
+      "Politics & Government": "society",
+      "Society & Social Issues & Human Rights": "society",
+      "Social Issues & Human Rights": "society",
+      "Environment": "society",
+      "Culture & Cultural geography": "society",
+      "Religion & Spirituality": "society",
+      "International": "society",
+      "Ethics": "society",
+      "Entertainment & Travel & Hobby": "leisure",
+      "Sports": "leisure",
+      "Arts": "creation",
+      "Music": "creation",
+      "Daily Life & Home & Lifestyle": "daily",
+      "Food & Drink & Cooking": "daily",
+      "Shopping & Commodity": "daily",
+      "Other": "other"
+    },
+    "prefixMapping": {
+      "_doc": "Pour la longue traîne (libellés rares et variés) : si le libellé exact n'est pas dans 'mapping', on regarde son premier mot.",
+      "Philosophy": "learning",
+      "Psychology": "learning",
+      "History": "learning",
+      "Linguistics": "learning",
+      "Linguistique": "learning",
+      "General": "learning",
+      "Information": "learning",
+      "Sciences": "science",
+      "Biology": "science",
+      "Biotechnology": "science",
+      "Engineering": "science",
+      "Robotics": "science",
+      "Energy": "science",
+      "Informatique": "science",
+      "Géologie": "science",
+      "Geography": "science",
+      "Marketing": "work",
+      "Agriculture": "work",
+      "Industry": "work",
+      "Economics": "work",
+      "Professional": "work",
+      "Architecture": "work",
+      "Public": "society",
+      "Society": "society",
+      "Sociology": "society",
+      "Anthropology": "society",
+      "Urban": "society",
+      "Urbanism": "society",
+      "Urbanisme": "society",
+      "International": "society",
+      "Military": "society",
+      "Security": "society",
+      "Theology": "society",
+      "Ethics": "society",
+      "Travel": "leisure",
+      "Fashion": "daily"
+    },
+    "moderation": {
+      "_doc": "Garde-fou pour un public de 13-16 ans : si une catégorie Compar:IA contient un de ces mots, elle n'est jamais affichée ni comptée dans une catégorie nommée (elle part dans 'other'). Le jeu n'affiche que les libellés écrits ci-dessus, jamais de texte venant des utilisateurs.",
+      "blockedWords": ["sex", "adult", "porn", "drug", "weapon", "violence", "gambling", "suicide", "self-harm", "nsfw", "erotic"]
+    }
+  }
+}

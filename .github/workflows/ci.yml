@@ -14,5 +14,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run lint
+      # Reproductibilité (E3-2) : relancer le pipeline doit redonner exactement les fichiers du dépôt
+      - run: npm run data:build && git diff --exit-code -- src/data data/publication
       - run: npm test
       - run: npm run build

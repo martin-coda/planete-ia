@@ -39,6 +39,7 @@ React 19 · TypeScript · Vite · Three.js (React Three Fiber + drei) · Zustand
 - [Rendu de la carte (E0-4)](docs/03-rendu-carte.md)
 - [Moteur de jeu (E1)](docs/04-moteur.md)
 - [Interface (E2)](docs/05-interface.md)
+- [Données, hypothèses et limites (E3)](docs/06-donnees.md)
 - [Backlog](docs/backlog.md)
 
 ## Créer le board

@@ -97,6 +97,7 @@ function Usages() {
                 <input type="checkbox" checked={on} onChange={() => toggleCategory(c.id)} />
                 <span className="usage-label">{c.label}</span>
                 <span className="usage-meta">
+                  {c.realShare !== undefined && <>{pct(c.realShare)} des conversations Compar:IA · </>}
                   {pct(c.shareOfExtra)} de la surconso · −{fmt(c.trustCostOnLimit, 0)} confiance
                 </span>
               </label>

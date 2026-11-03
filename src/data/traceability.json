@@ -1,86 +1,128 @@
 [
   {
-    "param": "planet.population",
-    "realValue": "Population de la petite planète",
-    "sourceId": null,
-    "transformation": "Choix de design (échelle)",
-    "status": "placeholder"
-  },
-  {
-    "param": "demand.computePerUserPflops",
-    "realValue": "Calcul consommé par utilisateur",
-    "sourceId": "comparia",
-    "transformation": "À calibrer avec Compar:IA (kWh/conversation) et le nombre de requêtes/jour",
-    "status": "placeholder"
-  },
-  {
-    "param": "demand.adoption.growthRatePerMonth",
-    "realValue": "Courbe d'adoption de l'IA générative",
-    "sourceId": "barometre-numerique",
-    "transformation": "Ajuster pour que la phase 1 dure ~15 ans de jeu, cohérent avec le Baromètre du numérique",
-    "status": "placeholder"
-  },
-  {
-    "param": "demand.overuse.maxExtra",
-    "realValue": "Croissance projetée des usages",
-    "sourceId": "iea-energy-ai",
-    "transformation": "Calibrer sur les scénarios de l'AIE",
-    "status": "placeholder"
-  },
-  {
-    "param": "datacenter.powerMw",
-    "realValue": "Puissance électrique d'un datacenter IA",
-    "sourceId": "iea-energy-ai",
-    "transformation": "Mise à l'échelle de la planète",
-    "status": "placeholder"
-  },
-  {
-    "param": "datacenter.costRareEarthT",
-    "realValue": "Métaux critiques par datacenter",
-    "sourceId": "usgs-mcs",
-    "transformation": "USGS : métaux par serveur × serveurs par datacenter",
-    "status": "placeholder"
-  },
-  {
-    "param": "powerPlant.productionMw",
-    "realValue": "Puissance d'un réacteur",
-    "sourceId": "iea-energy-ai",
-    "transformation": "Mise à l'échelle de la planète",
-    "status": "placeholder"
+    "param": "city.powerMw",
+    "realValue": "449,2 TWh consommés en France en 2024 pour 68,75 millions d'habitants, soit 6,53 MWh par habitant et par an",
+    "sourceId": "rte-bilan-2024",
+    "transformation": "6,534 MWh/hab/an × 100 000 habitants ÷ 8 760 h = puissance moyenne en MW (population : Insee)",
+    "status": "calibrated"
   },
   {
     "param": "grid.baseLossRate",
-    "realValue": "Taux de pertes du réseau électrique",
-    "sourceId": "rte-eco2mix",
-    "transformation": "Reprendre le taux réel (RTE/Eurostat)",
-    "status": "placeholder"
+    "realValue": "Pertes 2024 : environ 2,5 % sur le réseau de transport RTE et 23,8 TWh sur le réseau Enedis",
+    "sourceId": "enedis-bilan-2024",
+    "transformation": "(2,5 % × 449,2 TWh + 23,8 TWh) ÷ 449,2 TWh. Le taux RTE vient d'une source secondaire (rte-pertes), à confirmer.",
+    "status": "calibrated"
   },
   {
-    "param": "city.powerMw",
-    "realValue": "Consommation électrique par habitant",
-    "sourceId": "rte-eco2mix",
-    "transformation": "Conso/habitant × population",
-    "status": "placeholder"
+    "param": "demand.adoption.growthRatePerMonth",
+    "realValue": "Utilisateurs d'IA générative en France : 20 % → 33 % → 48 % (juin 2023, 2024, 2025)",
+    "sourceId": "barometre-numerique",
+    "transformation": "Ajustement d'une courbe logistique (pente moyenne du logit entre deux enquêtes ÷ 12 mois). 1 mois de jeu = 1 mois réel en phase 1.",
+    "status": "calibrated"
+  },
+  {
+    "param": "demand.overuse.maxExtra",
+    "realValue": "Électricité des datacenters dans le monde : 415 TWh en 2024 → 945 TWh en 2030 (scénario de base AIE)",
+    "sourceId": "iea-energy-ai",
+    "transformation": "Plafond d'intensité = 945 ÷ 415 = ×2,28, donc surconsommation maximale de +128 %",
+    "status": "calibrated"
+  },
+  {
+    "param": "city.rareEarthTPerYear",
+    "realValue": "Réserves mondiales 90 Mt, production 390 kt en 2024 : 231 ans de réserves au rythme actuel",
+    "sourceId": "usgs-mcs",
+    "transformation": "Prélèvement de la ville = stock de départ (1 300 t) ÷ 231 ans : sans construire, la planète vit le même rapport réserves / production que la Terre.",
+    "status": "calibrated"
   },
   {
     "param": "rareEarth.initialStockT",
-    "realValue": "Rapport réserves / besoins annuels",
+    "realValue": "Rapport réserves / production de l'USGS (231 ans)",
     "sourceId": "usgs-mcs",
-    "transformation": "Conserver la proportion réelle",
-    "status": "placeholder"
-  },
-  {
-    "param": "usageCategories",
-    "realValue": "Répartition des usages",
-    "sourceId": "comparia",
-    "transformation": "Reprendre les catégories et parts Compar:IA",
-    "status": "placeholder"
+    "transformation": "Le stock (1 300 t) est une échelle de jeu. Le rapport réel est conservé par city.rareEarthTPerYear.",
+    "status": "calibrated"
   },
   {
     "param": "trust.initial",
-    "realValue": "Confiance envers l'IA",
+    "realValue": "52 % des personnes se disent méfiantes envers l'IA générative en 2025",
     "sourceId": "barometre-numerique",
-    "transformation": "Baromètre du numérique / Eurobaromètre",
-    "status": "placeholder"
+    "transformation": "Confiance de départ = 100 − 52 = part des personnes non méfiantes",
+    "status": "calibrated"
+  },
+  {
+    "param": "usageCategories",
+    "realValue": "Thèmes de 410 012 conversations Compar:IA (2024-10-01 → 2026-05-18)",
+    "sourceId": "comparia",
+    "transformation": "Catégories Compar:IA regroupées en 9 catégories (design.json). Part réelle = realShare. Part de la surconsommation : usages non essentiels pondérés ×7 (hypothèse). 0 libellé(s) filtré(s) par la modération.",
+    "status": "calibrated"
+  },
+  {
+    "param": "demand.computePerUserPflops",
+    "realValue": "Choix de conception du jeu",
+    "sourceId": null,
+    "transformation": "Unité de jeu : seul compte le rapport entre la demande et la capacité d'un datacenter.",
+    "status": "calibrated"
+  },
+  {
+    "param": "demand.adoption.initial",
+    "realValue": "Choix de conception du jeu",
+    "sourceId": null,
+    "transformation": "La partie commence au tout début de l'IA générative grand public (fin 2022), quand très peu de gens l'utilisaient.",
+    "status": "calibrated"
+  },
+  {
+    "param": "demand.overuse.growthRatePerMonth",
+    "realValue": "Choix de conception du jeu",
+    "sourceId": null,
+    "transformation": "Vitesse de la surconsommation en phase 2 : choisie pour que la phase 2 dure 5 à 10 minutes.",
+    "status": "calibrated"
+  },
+  {
+    "param": "demand.overuse.limitEfficiency",
+    "realValue": "Choix de conception du jeu",
+    "sourceId": null,
+    "transformation": "Limiter un usage ne le supprime pas : 80 % de sa surconsommation disparaît.",
+    "status": "calibrated"
+  },
+  {
+    "param": "datacenter",
+    "realValue": "Choix de conception du jeu",
+    "sourceId": null,
+    "transformation": "Un datacenter de 20 MW est un datacenter de taille moyenne ; coût et capacité choisis pour l'équilibre du jeu.",
+    "status": "calibrated"
+  },
+  {
+    "param": "powerPlant",
+    "realValue": "Choix de conception du jeu",
+    "sourceId": null,
+    "transformation": "Réacteur fictif (décision E0-1, n°3) : production et coût choisis pour que l'énergie devienne un vrai choix.",
+    "status": "calibrated"
+  },
+  {
+    "param": "grid.lossReductionPerLevel",
+    "realValue": "Choix de conception du jeu",
+    "sourceId": null,
+    "transformation": "Chaque optimisation du réseau gagne 2,5 points de pertes, jusqu'à un minimum de 2,5 %.",
+    "status": "calibrated"
+  },
+  {
+    "param": "trust",
+    "realValue": "Choix de conception du jeu",
+    "sourceId": null,
+    "transformation": "Formule de confiance de la décision E0-1 n°8 : coefficients d'équilibrage.",
+    "status": "calibrated"
+  },
+  {
+    "param": "end",
+    "realValue": "Choix de conception du jeu",
+    "sourceId": null,
+    "transformation": "Conditions de fin de la décision E0-1 (n°5 et n°6).",
+    "status": "calibrated"
+  },
+  {
+    "param": "planet.population",
+    "realValue": "Taille de la planète",
+    "sourceId": null,
+    "transformation": "Planète de 100 000 habitants (≈ 1/690 de la France) pour avoir des nombres lisibles. Le stock de terres rares est une échelle de jeu : ce qui compte, c'est le rapport stock / prélèvement annuel, tiré de l'USGS.",
+    "status": "calibrated"
   }
 ]

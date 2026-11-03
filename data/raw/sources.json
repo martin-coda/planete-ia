@@ -1,0 +1,66 @@
+[
+  {
+    "id": "comparia",
+    "title": "Compar:IA, jeu de données des conversations (catégories et estimations EcoLogits)",
+    "publisher": "Ministère de la Culture",
+    "url": "https://www.data.gouv.fr/datasets/compar-ia",
+    "license": "Licence Ouverte / Open Licence 2.0 (Etalab)",
+    "year": 2026
+  },
+  {
+    "id": "rte-bilan-2024",
+    "title": "Bilan électrique 2024, principaux résultats",
+    "publisher": "RTE",
+    "url": "https://assets.rte-france.com/analyse-et-donnees/2025-09/BE2024%20-%20Principaux%20R%C3%A9sultats.pdf",
+    "license": "Chiffres cités depuis une publication RTE (données détaillées éco2mix sous Licence Ouverte sur ODRÉ)",
+    "year": 2025
+  },
+  {
+    "id": "enedis-bilan-2024",
+    "title": "Bilan électrique 2024",
+    "publisher": "Enedis",
+    "url": "https://www.enedis.fr/media/4542/download",
+    "license": "Chiffres cités depuis une publication Enedis",
+    "year": 2025
+  },
+  {
+    "id": "rte-pertes",
+    "title": "Électricité : à combien s'élèvent les pertes en ligne en France ?",
+    "publisher": "Connaissance des Énergies (chiffres RTE)",
+    "url": "https://www.connaissancedesenergies.org/questions-et-reponses-energies/electricite-combien-selevent-les-pertes-en-ligne-en-france",
+    "license": "Chiffre cité (à remplacer par une source RTE directe)",
+    "year": 2024
+  },
+  {
+    "id": "insee-bilan-demo",
+    "title": "Bilan démographique 2025 : population au 1er janvier",
+    "publisher": "Insee",
+    "url": "https://www.insee.fr/fr/statistiques/8721185?sommaire=8721209",
+    "license": "Licence Ouverte (réutilisation libre des statistiques Insee)",
+    "year": 2026
+  },
+  {
+    "id": "barometre-numerique",
+    "title": "Baromètre du numérique, éditions 2025 et 2026 (enquêtes Crédoc de juin 2024 et juin 2025)",
+    "publisher": "Arcep / Arcom / CGE / ANCT (Crédoc)",
+    "url": "https://www.arcep.fr/actualites/actualites-et-communiques/detail/n/equipements-et-usages-du-numerique-090226.html",
+    "license": "Chiffres cités depuis un communiqué public (licence des données détaillées à confirmer sur data.gouv.fr)",
+    "year": 2026
+  },
+  {
+    "id": "iea-energy-ai",
+    "title": "Energy and AI",
+    "publisher": "Agence internationale de l'énergie (AIE)",
+    "url": "https://www.iea.org/reports/energy-and-ai",
+    "license": "Chiffres cités avec attribution. Les textes de l'AIE sont en général sous CC BY 4.0, mais le produit de données « Energy and AI » est sous conditions non-CC : on ne redistribue aucune donnée.",
+    "year": 2025
+  },
+  {
+    "id": "usgs-mcs",
+    "title": "Mineral Commodity Summaries 2025 : Rare earths",
+    "publisher": "USGS (Service géologique des États-Unis)",
+    "url": "https://pubs.usgs.gov/periodicals/mcs2025/mcs2025-rare-earths.pdf",
+    "license": "Domaine public (publication du gouvernement fédéral américain)",
+    "year": 2025
+  }
+]

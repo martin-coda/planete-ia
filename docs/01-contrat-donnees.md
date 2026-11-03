@@ -8,12 +8,12 @@ Le moteur (R1) et le pipeline de données (R3) communiquent **uniquement** par l
 |---|---|---|---|
 | `game-params.json` | R3 (valeurs) et R1 (équilibrage) | Moteur | Tous les paramètres numériques du jeu |
 | `map.json` | R1 / R2 | Moteur et scène 3D | Carte prédéfinie et position des easter eggs |
-| `usageCategories` (dans `game-params.json`) | R3 | Moteur et HUD | Catégories d'usage Compar:IA, essentielles ou non, et leur part |
+| `usageCategories` (dans `game-params.json`) | R3 | Moteur et HUD | Catégories d'usage Compar:IA, essentielles ou non, leur part réelle (`realShare`) et leur part de la surconsommation (`shareOfExtra`) |
 | `facts.json` | R3 | UI | Fiches « Et dans le monde réel ? » et fiches secrètes (textes de 300 caractères max, niveau 4e/2nde) |
 | `sources.json` | R3 | UI (crédits, infobulles) | Sources : titre, éditeur, URL, licence, année |
 | `traceability.json` | R3 | Rendu jury | Tableau de traçabilité : paramètre → donnée réelle → source → transformation → statut |
 
-Les données brutes et le script qui les transforme vont dans `data/raw/` et `data/scripts/`. Le script **écrit** dans `src/data/`. Il doit être reproductible : quelqu'un qui le relance obtient les mêmes JSON.
+Les données brutes et le script qui les transforme vont dans `data/raw/` et `data/scripts/`. Le script (`npm run data:build`) **écrit** `game-params.json`, `sources.json` et `traceability.json` dans `src/data/` : ces trois fichiers ne se modifient plus à la main. Il est reproductible, et la CI le vérifie. Voir `data/README.md`.
 
 ## Unités
 

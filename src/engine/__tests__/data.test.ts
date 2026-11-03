@@ -36,6 +36,24 @@ describe('contrat de données', () => {
     }
   });
 
+  it('chaque fiche donne un chiffre clé, sans texte provisoire', () => {
+    for (const f of fcts) {
+      expect(f.figure, f.id).toBeTruthy();
+      expect(f.text, f.id).not.toMatch(/provisoire|à compléter/i);
+      expect(f.figure, f.id).not.toMatch(/à compléter/i);
+    }
+  });
+
+  it("chaque catégorie d'usage a sa part réelle Compar:IA, et leur somme vaut 1", () => {
+    for (const c of config.usageCategories) expect(c.realShare, c.id).toBeDefined();
+    const sum = config.usageCategories.reduce((s, c) => s + (c.realShare ?? 0), 0);
+    expect(sum).toBeCloseTo(1, 6);
+  });
+
+  it('plus aucune valeur provisoire dans la traçabilité', () => {
+    for (const t of trace) expect(t.status, t.param).toBe('calibrated');
+  });
+
   it('les bâtiments de départ sont sur des cases constructibles', () => {
     for (const b of config.start.buildings) expect(map.tiles[b.y][b.x]).toBe('.');
   });

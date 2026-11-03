@@ -19,6 +19,8 @@ export const UsageCategorySchema = z.object({
   shareOfExtra: ratio,
   /** Points de confiance perdus une fois quand le joueur limite cette catégorie */
   trustCostOnLimit: nonNegative,
+  /** Part réelle de cette catégorie dans les conversations Compar:IA (affichée au joueur). Somme de toutes = 1. */
+  realShare: ratio.optional(),
 });
 
 export const GameConfigSchema = z

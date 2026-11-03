@@ -1,0 +1,185 @@
+{
+  "_doc": "E3-1 : chiffres relevés à la main dans des publications (PDF, communiqués). Un chiffre = une entrée. 'verified' = lu dans le document d'origine (true) ou seulement dans une source secondaire (false, à vérifier par R3). Relevé le 2026-11-02.",
+  "figures": [
+    {
+      "id": "fr-consumption-2024",
+      "value": 449.2,
+      "unit": "TWh",
+      "label": "Consommation d'électricité en France en 2024 (corrigée des aléas météo et calendaires, autoconsommation incluse)",
+      "sourceId": "rte-bilan-2024",
+      "where": "Bilan électrique 2024, principaux résultats, graphique « Consommation corrigée… entre 2000 et 2024 »",
+      "verified": true
+    },
+    {
+      "id": "fr-production-2024",
+      "value": 539.0,
+      "unit": "TWh",
+      "label": "Production totale d'électricité en France en 2024",
+      "sourceId": "rte-bilan-2024",
+      "where": "Bilan électrique 2024, principaux résultats, « Production totale : 539,0 TWh »",
+      "verified": true
+    },
+    {
+      "id": "fr-population-2024",
+      "value": 68.745,
+      "unit": "millions d'habitants",
+      "label": "Population moyenne de la France en 2024 (moyenne des 1er janvier 2024 et 2025 : 68 638 et 68 852 milliers, provisoire)",
+      "sourceId": "insee-bilan-demo",
+      "where": "Insee, bilan démographique 2025, série « Population au 1er janvier »",
+      "verified": true
+    },
+    {
+      "id": "enedis-losses-2024",
+      "value": 23.8,
+      "unit": "TWh",
+      "label": "Pertes sur le réseau de distribution Enedis en 2024 (techniques et non techniques)",
+      "sourceId": "enedis-bilan-2024",
+      "where": "Bilan électrique Enedis 2024, « Pertes 23,8 TWh »",
+      "verified": true
+    },
+    {
+      "id": "enedis-flow-2024",
+      "value": 371.6,
+      "unit": "TWh",
+      "label": "Énergie totale transitée sur le réseau Enedis en 2024",
+      "sourceId": "enedis-bilan-2024",
+      "where": "Bilan électrique Enedis 2024, « 371,6 TWh en 2024 »",
+      "verified": true
+    },
+    {
+      "id": "rte-transport-loss-rate",
+      "value": 0.025,
+      "unit": "ratio",
+      "label": "Taux moyen de pertes sur le réseau de transport RTE (fourchette 2 à 3,5 % selon les saisons et les heures)",
+      "sourceId": "rte-pertes",
+      "where": "Chiffre RTE relayé par Connaissance des Énergies ; pas trouvé dans le bilan 2024",
+      "verified": false
+    },
+    {
+      "id": "genai-users-2023",
+      "value": 0.2,
+      "unit": "ratio",
+      "label": "Part des Français de 12 ans et plus ayant déjà utilisé l'IA générative (enquête juin 2023)",
+      "sourceId": "barometre-numerique",
+      "where": "Baromètre du numérique, édition 2025 : 33 %, « + 13 points en un an » (donc 20 % en 2023)",
+      "verified": false
+    },
+    {
+      "id": "genai-users-2024",
+      "value": 0.33,
+      "unit": "ratio",
+      "label": "Part des Français de 12 ans et plus ayant déjà utilisé l'IA générative (enquête juin 2024)",
+      "sourceId": "barometre-numerique",
+      "where": "Baromètre du numérique, édition 2025 (mars 2025), infographie",
+      "verified": false
+    },
+    {
+      "id": "genai-users-2025",
+      "value": 0.48,
+      "unit": "ratio",
+      "label": "Part de la population de 12 ans et plus qui utilise l'IA générative (enquête juin 2025, 4 145 personnes)",
+      "sourceId": "barometre-numerique",
+      "where": "Communiqué Arcep du 9 février 2026 (Baromètre du numérique, édition 2026)",
+      "verified": true
+    },
+    {
+      "id": "genai-distrust-2025",
+      "value": 0.52,
+      "unit": "ratio",
+      "label": "Part des personnes qui se déclarent méfiantes à l'égard de l'IA générative en 2025 (−5 points en un an)",
+      "sourceId": "barometre-numerique",
+      "where": "Communiqué Arcep du 9 février 2026 : « La proportion de personnes méfiantes s'élève à 52 % en 2025 »",
+      "verified": true
+    },
+    {
+      "id": "genai-homework-12-17",
+      "value": 0.68,
+      "unit": "ratio",
+      "label": "Part des 12-17 ans qui utilisent l'IA pour l'aide aux devoirs (2025)",
+      "sourceId": "barometre-numerique",
+      "where": "Communiqué Arcep du 9 février 2026 : « 68% des 12-17 ans, 73% des 18-24 ans »",
+      "verified": true
+    },
+    {
+      "id": "genai-users-18-24",
+      "value": 0.85,
+      "unit": "ratio",
+      "label": "Part des 18-24 ans qui utilisent l'IA générative (2025)",
+      "sourceId": "barometre-numerique",
+      "where": "Communiqué Arcep du 9 février 2026 : « L'usage de l'IA est massif chez les jeunes adultes (85 %) »",
+      "verified": true
+    },
+    {
+      "id": "dc-electricity-2024",
+      "value": 415,
+      "unit": "TWh",
+      "label": "Électricité consommée par les datacenters dans le monde en 2024 (environ 1,5 % de l'électricité mondiale)",
+      "sourceId": "iea-energy-ai",
+      "where": "AIE, Energy and AI (2025), résumé ; chiffre repris par de nombreuses sources",
+      "verified": false
+    },
+    {
+      "id": "dc-electricity-2030",
+      "value": 945,
+      "unit": "TWh",
+      "label": "Projection 2030 de la consommation des datacenters (scénario de base de l'AIE)",
+      "sourceId": "iea-energy-ai",
+      "where": "AIE, Energy and AI (2025), résumé",
+      "verified": false
+    },
+    {
+      "id": "dc-electricity-2035-range",
+      "value": [700, 1700],
+      "unit": "TWh",
+      "label": "Fourchette 2035 de la consommation des datacenters selon les scénarios de l'AIE (1 200 TWh dans le scénario de base)",
+      "sourceId": "iea-energy-ai",
+      "where": "AIE, Energy and AI (2025), résumé",
+      "verified": false
+    },
+    {
+      "id": "dc-water-2023",
+      "value": 560,
+      "unit": "milliards de litres",
+      "label": "Eau consommée par les datacenters dans le monde en 2023 (environ 1 200 milliards de litres en 2030)",
+      "sourceId": "iea-energy-ai",
+      "where": "Chiffre attribué à l'AIE par la presse spécialisée ; à vérifier dans le rapport",
+      "verified": false
+    },
+    {
+      "id": "ree-production-2024",
+      "value": 390000,
+      "unit": "t d'équivalent oxydes de terres rares",
+      "label": "Production minière mondiale de terres rares en 2024 (376 000 t en 2023)",
+      "sourceId": "usgs-mcs",
+      "where": "USGS, Mineral Commodity Summaries 2025, Rare earths, tableau « World Mine Production and Reserves »",
+      "verified": true
+    },
+    {
+      "id": "ree-production-china-2024",
+      "value": 270000,
+      "unit": "t d'équivalent oxydes de terres rares",
+      "label": "Production minière de terres rares de la Chine en 2024 (quota de production)",
+      "sourceId": "usgs-mcs",
+      "where": "USGS, Mineral Commodity Summaries 2025, Rare earths",
+      "verified": true
+    },
+    {
+      "id": "ree-reserves",
+      "value": 90000000,
+      "unit": "t d'équivalent oxydes de terres rares",
+      "label": "Réserves mondiales de terres rares (plus de 90 millions de tonnes)",
+      "sourceId": "usgs-mcs",
+      "where": "USGS, Mineral Commodity Summaries 2025, Rare earths, « World total (rounded) >90,000,000 »",
+      "verified": true
+    },
+    {
+      "id": "ree-reserves-china",
+      "value": 44000000,
+      "unit": "t d'équivalent oxydes de terres rares",
+      "label": "Réserves de terres rares de la Chine",
+      "sourceId": "usgs-mcs",
+      "where": "USGS, Mineral Commodity Summaries 2025, Rare earths",
+      "verified": true
+    }
+  ]
+}

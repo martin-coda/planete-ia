@@ -1,10 +1,71 @@
 [
-  { "id": "fact-end-blackout", "kind": "ending", "ending": "blackout", "title": "Et dans le monde réel ?", "text": "Les datacenters consomment déjà une part importante de l'électricité mondiale, et cette part augmente vite avec l'IA. [Texte provisoire, R3 doit vérifier le chiffre et la source]", "figure": "À compléter (AIE)", "sourceId": "iea-energy-ai" },
-  { "id": "fact-end-resources", "kind": "ending", "ending": "resources", "title": "Et dans le monde réel ?", "text": "Les puces et les aimants des serveurs utilisent des métaux critiques, extraits dans peu de pays. [Texte provisoire, R3]", "figure": "À compléter (USGS)", "sourceId": "usgs-mcs" },
-  { "id": "fact-end-trust", "kind": "ending", "ending": "trust", "title": "Et dans le monde réel ?", "text": "Une partie des Français se méfie de l'IA et de son impact. [Texte provisoire, R3]", "figure": "À compléter (Baromètre du numérique)", "sourceId": "barometre-numerique" },
-  { "id": "fact-end-overuse", "kind": "ending", "ending": "overuse", "title": "Et dans le monde réel ?", "text": "Le coût énergétique d'une conversation avec une IA varie beaucoup selon le modèle. On donne une fourchette, pas un chiffre unique. [Texte provisoire, R3]", "figure": "À compléter (Compar:IA, fourchette)", "sourceId": "comparia" },
-  { "id": "fact-end-stabilized", "kind": "ending", "ending": "stabilized", "title": "Vous avez compris les enjeux", "text": "Votre planète tient. Dans la réalité, ces problèmes ne sont pas réglés : la demande d'IA continue d'augmenter. [Texte provisoire, R3]", "sourceId": "iea-energy-ai" },
-  { "id": "fact-egg-metals", "kind": "easterEgg", "title": "Fiche secrète : les métaux", "text": "[Provisoire] Fiche sur les réserves et la concentration géographique des métaux critiques.", "sourceId": "usgs-mcs" },
-  { "id": "fact-egg-water", "kind": "easterEgg", "title": "Fiche secrète : l'eau", "text": "[Provisoire] Fiche sur l'eau utilisée pour refroidir les datacenters.", "sourceId": "iea-energy-ai" },
-  { "id": "fact-egg-students", "kind": "easterEgg", "title": "Fiche secrète : les élèves", "text": "[Provisoire] Fiche sur l'usage de l'IA générative par les collégiens et lycéens.", "sourceId": "barometre-numerique" }
+  {
+    "id": "fact-end-blackout",
+    "kind": "ending",
+    "ending": "blackout",
+    "title": "Et dans le monde réel ?",
+    "text": "En 2024, les datacenters du monde ont consommé environ 415 TWh d'électricité, soit 1,5 % de l'électricité mondiale. Selon l'Agence internationale de l'énergie, ce chiffre pourrait plus que doubler d'ici 2030, surtout à cause de l'IA.",
+    "figure": "415 TWh en 2024, environ 945 TWh en 2030",
+    "sourceId": "iea-energy-ai"
+  },
+  {
+    "id": "fact-end-resources",
+    "kind": "ending",
+    "ending": "resources",
+    "title": "Et dans le monde réel ?",
+    "text": "Les terres rares servent dans les aimants des disques et des ventilateurs des serveurs. En 2024, la Chine en a extrait 270 000 tonnes sur 390 000 dans le monde : près de 7 sur 10. Un seul pays contrôle presque toute la ressource.",
+    "figure": "69 % de la production mondiale (2024)",
+    "sourceId": "usgs-mcs"
+  },
+  {
+    "id": "fact-end-trust",
+    "kind": "ending",
+    "ending": "trust",
+    "title": "Et dans le monde réel ?",
+    "text": "En 2025, près d'un Français sur deux utilise l'IA générative… mais 52 % disent s'en méfier. On peut se servir d'un outil tous les jours tout en doutant de lui. La confiance se gagne, et elle se perd vite.",
+    "figure": "52 % de personnes méfiantes (2025)",
+    "sourceId": "barometre-numerique"
+  },
+  {
+    "id": "fact-end-overuse",
+    "kind": "ending",
+    "ending": "overuse",
+    "title": "Et dans le monde réel ?",
+    "text": "Sur Compar:IA, une conversation avec une IA consomme le plus souvent entre 0,03 et 7 Wh selon le modèle et la longueur de l'échange. Ce sont des estimations : on donne une fourchette, pas un chiffre unique. Un petit modèle et moins de requêtes inutiles, ça compte.",
+    "figure": "0,03 à 7 Wh par conversation (médiane 0,4 Wh)",
+    "sourceId": "comparia"
+  },
+  {
+    "id": "fact-end-stabilized",
+    "kind": "ending",
+    "ending": "stabilized",
+    "title": "Vous avez compris les enjeux",
+    "text": "Votre planète tient. La vraie, pas encore : selon les scénarios de l'Agence internationale de l'énergie, les datacenters pourraient consommer entre 700 et 1 700 TWh en 2035. Ce sont nos choix d'aujourd'hui qui décideront.",
+    "figure": "700 à 1 700 TWh en 2035",
+    "sourceId": "iea-energy-ai"
+  },
+  {
+    "id": "fact-egg-metals",
+    "kind": "easterEgg",
+    "title": "Fiche secrète : les métaux",
+    "text": "Les réserves connues de terres rares sont d'environ 90 millions de tonnes, dont 44 millions en Chine. Au rythme d'extraction de 2024, elles dureraient environ 230 ans… si la demande cessait d'augmenter, ce qui n'est pas le cas.",
+    "figure": "≈ 230 ans de réserves au rythme de 2024",
+    "sourceId": "usgs-mcs"
+  },
+  {
+    "id": "fact-egg-water",
+    "kind": "easterEgg",
+    "title": "Fiche secrète : l'eau",
+    "text": "Pour refroidir leurs serveurs, beaucoup de datacenters utilisent de l'eau qui s'évapore. Leur consommation mondiale est estimée à environ 560 milliards de litres par an, et elle pourrait doubler d'ici 2030.",
+    "figure": "≈ 560 milliards de litres par an (estimation)",
+    "sourceId": "iea-energy-ai"
+  },
+  {
+    "id": "fact-egg-students",
+    "kind": "easterEgg",
+    "title": "Fiche secrète : les élèves",
+    "text": "En 2025, 68 % des 12-17 ans utilisent l'IA pour les devoirs, et 85 % des 18-24 ans l'utilisent tout court. Elle est devenue un outil du quotidien… dont on voit rarement ce qu'il coûte en énergie.",
+    "figure": "68 % des 12-17 ans pour les devoirs (2025)",
+    "sourceId": "barometre-numerique"
+  }
 ]
